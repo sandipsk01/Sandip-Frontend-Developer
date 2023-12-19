@@ -35,11 +35,11 @@ function Grid() {
 
   return (
     <>
-      <div className='flex flex-wrap justify-center cursor-pointer'>
+      <div className='flex flex-wrap justify-center cursor-pointer my-[5vh]'>
         {currentCapsules.map((capsule) => (
           <div className='flex flex-col border-4' key={capsule.capsule_serial} onClick={() => getDetails(capsule)}>
             <img className='w-[24vw]' src={xcapsule} alt={capsule.capsule_serial} />
-            <div className='w-[24vw] inline-block'>{capsule.capsule_serial}</div>
+            <div className='w-[24vw] inline-block font-serif'>{capsule.capsule_serial}</div>
           </div>
         ))}
       </div>
@@ -47,7 +47,7 @@ function Grid() {
       <div>
         {Array.from({ length: Math.ceil(filteredData.length / capsulesPerPage) }, (_, index) => (
           <button
-            className={`border-2 w-5 m-1 border-blue-950 ${currentPage === index + 1 ? 'bg-blue-500' : ''}`}
+            className={`border-2 w-5 m-1 font-serif border-blue-950 ${currentPage === index + 1 ? 'bg-blue-500' : ''}`}
             key={index}
             onClick={() => paginate(index + 1)}
           >

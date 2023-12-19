@@ -13,14 +13,14 @@ function Details({ capsule, closeModal }) {
             <div></div>
           ) : 
           (
-            <>
+            <div className='font-serif'>
               {key}: {capsule[key]}
-            </>
+            </div>
           )}
         </div>
       ))}
       
-      <button  className='border border-blue-500 text-white bg-blue-500 mt-[1vh] py-1 w-20 rounded-md' onClick={closeModal}>Close</button>
+      <button  className='border border-blue-500 text-white bg-blue-500 mt-[1vh] py-1 w-20 rounded-md font-serif' onClick={closeModal}>Close</button>
     </div>
   );
 }

@@ -42,19 +42,19 @@ const SearchForm = () => {
 
   return (
     <div>
-      <h2 className='font-bold text-xl m-5'>SEARCH CAPSULES</h2>
-
+      <h2 className=' font-serif text-[4vh] text-blue-950 m-5'>SEARCH CAPSULES</h2>
+      <hr/>
       <form
-        className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-5 mb-[1vh]"
+        className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-10 my-[1vh]"
         onSubmit={(e) => e.preventDefault()}
       >
-        <label className='inline-block font-semibold'>
+        <label className='inline-block font-serif text-sm'>
           STATUS:
           <select
             name="status"
             value={filter.status}
             onChange={handleInputChange}
-            className='border border-slate-950 rounded-md ml-[0.6vw] font-normal'
+            className='border border-slate-950 rounded-md ml-[1vw] font-light'
           >
             <option value="">Select Status</option>
             <option value="active">Active</option>
@@ -63,36 +63,37 @@ const SearchForm = () => {
           </select>
         </label>
 
-        <label className='inline-block font-semibold'>
-          ORIGINAL LAUNCH:
-          <input
-            type="text"
-            name="original_launch"
-            value={filter.original_launch}
-            onChange={handleInputChange}
-            className='border border-slate-950 rounded-md ml-[0.6vw] font-normal px-[0.5vw]'
-          />
-        </label>
-
-        <label className='inline-block font-semibold'>
+        <label className='inline-block font-serif text-sm'>
           TYPE:
           <input
             type="text"
             name="type"
             value={filter.type}
             onChange={handleInputChange}
-            className='border border-slate-950 rounded-md ml-[0.6vw] font-normal px-[0.5vw]'
+            className='border border-slate-950 rounded-md ml-[1vw] font-light px-[0.5vw]'
+          />
+        </label>
+
+        <label className='inline-block font-serif text-sm'>
+          ORIGINAL LAUNCH:
+          <input
+            type="text"
+            name="original_launch"
+            value={filter.original_launch}
+            onChange={handleInputChange}
+            className='border border-slate-950 rounded-md ml-[1vw] font-light px-[0.5vw]'
           />
         </label>
 
         <button
           type="button"
           onClick={filterData}
-          className='border border-blue-500 text-white bg-blue-500 m-[vw] px-[1vw] rounded-md hover:bg-blue-900 font-semibold'
+          className='border border-blue-500 text-white bg-blue-500 m-[vw] px-[1vw] rounded-md hover:bg-blue-900 font-serif text-sm'
         >
           APPLY
         </button>
       </form>
+      <hr/>
     </div>
   );
 };
