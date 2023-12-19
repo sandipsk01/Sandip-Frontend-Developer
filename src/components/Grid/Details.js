@@ -4,11 +4,11 @@ import xcapsule from "./capsule.jpg"
 
 function Details({ capsule, closeModal }) {
   return (
-    <div className='flex flex-col flex-wrap w-[60vw] h-[80vh] p-[1vw] pb-[2vw]'>
+    <div className='flex flex-col items-center flex-wrap p-[1vw] pb-[2vw]'>
       <img className='w-[20vw] mb-[3vw]' src={xcapsule} alt='capsule'/>
 
       {Object.keys(capsule).map((key) => (
-        <div className='inline-block text-left w-[60vw]' key={key}>
+        <div key={key}>
           {key === "missions" ? (
             <div></div>
           ) : 
