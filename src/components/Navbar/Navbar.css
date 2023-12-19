@@ -1,0 +1,31 @@
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+  
+.nav-item:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: white;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    transition: transform 0.5s ease;
+}
+  
+.nav-item:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.5s ease;
+}
+  
