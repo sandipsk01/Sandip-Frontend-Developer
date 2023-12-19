@@ -26,8 +26,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-## Advanced Configuration
-
 ## Tailwind CSS Configuration
 
 This project uses [Tailwind CSS](https://tailwindcss.com/) for styling. Tailwind CSS provides a highly customizable and low-level utility-first framework for building modern designs.
