@@ -47,7 +47,7 @@ function Grid() {
       <div>
         {Array.from({ length: Math.ceil(filteredData.length / capsulesPerPage) }, (_, index) => (
           <button
-            className={`border-2 h-[3vw] w-[3vw] m-1 border-blue-950 ${currentPage === index + 1 ? 'bg-blue-500' : ''}`}
+            className={`border-2 w-5 m-1 border-blue-950 ${currentPage === index + 1 ? 'bg-blue-500' : ''}`}
             key={index}
             onClick={() => paginate(index + 1)}
           >
