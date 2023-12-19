@@ -37,21 +37,24 @@ const SearchForm = () => {
       status: '',
       original_launch: '',
       type: '',
-    })
+    });
   };
 
   return (
     <div>
-      <h2 className='font-bold text-xl mt-5'>SEARCH CAPSULES</h2>
-      
-      <form onSubmit={(e) => e.preventDefault()}>
+      <h2 className='font-bold text-xl m-5'>SEARCH CAPSULES</h2>
+
+      <form
+        className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0 md:space-x-5 mb-[1vh]"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <label className='inline-block font-semibold'>
           STATUS:
           <select
             name="status"
             value={filter.status}
             onChange={handleInputChange}
-            className='border border-slate-950 m-[2vw] rounded-md font-normal'
+            className='border border-slate-950 rounded-md ml-[0.6vw] font-normal'
           >
             <option value="">Select Status</option>
             <option value="active">Active</option>
@@ -59,6 +62,7 @@ const SearchForm = () => {
             <option value="unknown">Unknown</option>
           </select>
         </label>
+
         <label className='inline-block font-semibold'>
           ORIGINAL LAUNCH:
           <input
@@ -66,9 +70,10 @@ const SearchForm = () => {
             name="original_launch"
             value={filter.original_launch}
             onChange={handleInputChange}
-            className='border border-slate-950 m-[2vw] rounded-md font-normal px-[0.5vw]'
+            className='border border-slate-950 rounded-md ml-[0.6vw] font-normal px-[0.5vw]'
           />
         </label>
+
         <label className='inline-block font-semibold'>
           TYPE:
           <input
@@ -76,10 +81,15 @@ const SearchForm = () => {
             name="type"
             value={filter.type}
             onChange={handleInputChange}
-            className='border border-slate-950 m-[2vw] rounded-md font-normal px-[0.5vw]'
+            className='border border-slate-950 rounded-md ml-[0.6vw] font-normal px-[0.5vw]'
           />
         </label>
-        <button type="button" onClick={filterData} className='border border-blue-500 text-white bg-blue-500 m-[0.5vw] px-[1vw] py-[0.3vh] rounded-md hover:bg-blue-900 font-semibold'>
+
+        <button
+          type="button"
+          onClick={filterData}
+          className='border border-blue-500 text-white bg-blue-500 m-[vw] px-[1vw] rounded-md hover:bg-blue-900 font-semibold'
+        >
           APPLY
         </button>
       </form>
