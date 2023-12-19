@@ -1,5 +1,5 @@
 // Grid.js
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { dataContext } from '../../context';
 import xcapsule from "./capsule.jpg";
 import Details from './Details';
@@ -13,6 +13,11 @@ function Grid() {
   const [details, setDetails] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const capsulesPerPage = 8;
+
+  useEffect(() => {
+    // Reset current page when filtered data changes
+    setCurrentPage(1);
+  }, [filteredData]);
 
   const indexOfLastCapsule = currentPage * capsulesPerPage;
   const indexOfFirstCapsule = indexOfLastCapsule - capsulesPerPage;
@@ -42,7 +47,7 @@ function Grid() {
       <div>
         {Array.from({ length: Math.ceil(filteredData.length / capsulesPerPage) }, (_, index) => (
           <button
-            className='border-2 h-[3vw] w-[3vw] m-1 border-blue-950'
+            className={`border-2 h-[3vw] w-[3vw] m-1 border-blue-950 ${currentPage === index + 1 ? 'bg-blue-500' : ''}`}
             key={index}
             onClick={() => paginate(index + 1)}
           >

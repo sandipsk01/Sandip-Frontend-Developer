@@ -37,6 +37,7 @@ const SearchForm = () => {
   return (
     <div>
       <h2 className='font-bold text-xl mt-5'>SEARCH CAPSULES</h2>
+      
       <form onSubmit={(e) => e.preventDefault()}>
         <label className='inline-block'>
           Status:
