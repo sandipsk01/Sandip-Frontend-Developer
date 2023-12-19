@@ -9,7 +9,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px; 
+    height: 0.1vw; 
     background-color: white;
     transform: scaleX(1);
     transform-origin: bottom left;
@@ -22,7 +22,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px;
+    height: 0.1vw;
     background-color: transparent;
     transform: scaleX(0);
     transform-origin: bottom right;

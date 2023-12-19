@@ -5,7 +5,7 @@ const SearchForm = () => {
   const { data, setFilteredData } = useContext(dataContext);
   const [filter, setFilter] = useState({
     status: '',
-    originalLaunch: '',
+    original_launch: '',
     type: '',
   });
 
@@ -22,7 +22,7 @@ const SearchForm = () => {
     const filteredData = data.filter((item) => {
       return (
         (filter.status === '' || item.status === filter.status) &&
-        (filter.originalLaunch === '' || item.original_launch === filter.originalLaunch) &&
+        (filter.original_launch === '' || item.original_launch === filter.original_launch) &&
         (filter.type === '' || item.type === filter.type)
       );
     });
@@ -32,6 +32,12 @@ const SearchForm = () => {
 
     // Update the state with the filtered data
     setFilteredData(filteredData);
+
+    setFilter({
+      status: '',
+      original_launch: '',
+      type: '',
+    })
   };
 
   return (
@@ -39,13 +45,13 @@ const SearchForm = () => {
       <h2 className='font-bold text-xl mt-5'>SEARCH CAPSULES</h2>
       
       <form onSubmit={(e) => e.preventDefault()}>
-        <label className='inline-block'>
-          Status:
+        <label className='inline-block font-semibold'>
+          STATUS:
           <select
             name="status"
             value={filter.status}
             onChange={handleInputChange}
-            className='border border-slate-950 m-[2vw] rounded-md'
+            className='border border-slate-950 m-[2vw] rounded-md font-normal'
           >
             <option value="">Select Status</option>
             <option value="active">Active</option>
@@ -53,28 +59,28 @@ const SearchForm = () => {
             <option value="unknown">Unknown</option>
           </select>
         </label>
-        <label className='inline-block'>
-          Original Launch:
+        <label className='inline-block font-semibold'>
+          ORIGINAL LAUNCH:
           <input
             type="text"
             name="original_launch"
-            value={filter.originalLaunch}
+            value={filter.original_launch}
             onChange={handleInputChange}
-            className='border border-slate-950 m-[2vw] rounded-md'
+            className='border border-slate-950 m-[2vw] rounded-md font-normal px-[0.5vw]'
           />
         </label>
-        <label className='inline-block'>
-          Type:
+        <label className='inline-block font-semibold'>
+          TYPE:
           <input
             type="text"
             name="type"
             value={filter.type}
             onChange={handleInputChange}
-            className='border border-slate-950 m-[2vw] rounded-md'
+            className='border border-slate-950 m-[2vw] rounded-md font-normal px-[0.5vw]'
           />
         </label>
-        <button type="button" onClick={filterData} className='border border-blue-500 text-white bg-blue-500 m-[0.5vw] px-[1vw] py-[0.1vw] rounded-md'>
-          Apply Filter
+        <button type="button" onClick={filterData} className='border border-blue-500 text-white bg-blue-500 m-[0.5vw] px-[1vw] py-[0.3vh] rounded-md hover:bg-blue-900 font-semibold'>
+          APPLY
         </button>
       </form>
     </div>
