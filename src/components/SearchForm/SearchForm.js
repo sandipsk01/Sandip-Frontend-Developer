@@ -38,13 +38,13 @@ const SearchForm = () => {
     <div>
       <h2 className='font-bold text-xl mt-5'>SEARCH CAPSULES</h2>
       <form onSubmit={(e) => e.preventDefault()}>
-        <label>
+        <label className='inline-block'>
           Status:
           <select
             name="status"
             value={filter.status}
             onChange={handleInputChange}
-            className='border border-slate-950 m-4 rounded-md'
+            className='border border-slate-950 m-[2vw] rounded-md'
           >
             <option value="">Select Status</option>
             <option value="active">Active</option>
@@ -52,27 +52,27 @@ const SearchForm = () => {
             <option value="unknown">Unknown</option>
           </select>
         </label>
-        <label>
+        <label className='inline-block'>
           Original Launch:
           <input
             type="text"
             name="original_launch"
             value={filter.originalLaunch}
             onChange={handleInputChange}
-            className='border border-slate-950 m-4 rounded-md'
+            className='border border-slate-950 m-[2vw] rounded-md'
           />
         </label>
-        <label>
+        <label className='inline-block'>
           Type:
           <input
             type="text"
             name="type"
             value={filter.type}
             onChange={handleInputChange}
-            className='border border-slate-950 m-4 rounded-md'
+            className='border border-slate-950 m-[2vw] rounded-md'
           />
         </label>
-        <button type="button" onClick={filterData} className='border border-blue-500 text-white bg-blue-500 m-4 px-3 py-1 rounded-md'>
+        <button type="button" onClick={filterData} className='border border-blue-500 text-white bg-blue-500 m-[0.5vw] px-[1vw] py-[0.1vw] rounded-md'>
           Apply Filter
         </button>
       </form>

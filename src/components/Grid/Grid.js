@@ -1,41 +1,65 @@
+// Grid.js
 import React, { useState, useContext } from 'react';
 import { dataContext } from '../../context';
 import xcapsule from "./capsule.jpg";
+import Details from './Details';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 function Grid() {
   const { filteredData } = useContext(dataContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const capsulesPerPage = 16;
+  const [details, setDetails] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const capsulesPerPage = 8;
 
-  // Calculate the indexes of capsules to display on the current page
   const indexOfLastCapsule = currentPage * capsulesPerPage;
   const indexOfFirstCapsule = indexOfLastCapsule - capsulesPerPage;
   const currentCapsules = filteredData.slice(indexOfFirstCapsule, indexOfLastCapsule);
 
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const getDetails = (capsule) => {
+    setDetails(capsule);
+    openModal();
+  };
 
   return (
-    <div>
-      <div className='flex flex-wrap justify-center'>
-        {currentCapsules.map(capsule => (
-          <div className='flex flex-col border-4' key={capsule.capsule_serial}>
+    <>
+      <div className='flex flex-wrap justify-center cursor-pointer'>
+        {currentCapsules.map((capsule) => (
+          <div className='flex flex-col border-4' key={capsule.capsule_serial} onClick={() => getDetails(capsule)}>
             <img className='w-[24vw]' src={xcapsule} alt={capsule.capsule_serial} />
-            <div className='w-[24vw] inline-block'>
-              {capsule.capsule_serial}
-            </div>
+            <div className='w-[24vw] inline-block'>{capsule.capsule_serial}</div>
           </div>
         ))}
       </div>
+
       <div>
-        {/* Pagination logic */}
         {Array.from({ length: Math.ceil(filteredData.length / capsulesPerPage) }, (_, index) => (
-          <button className='border-2 h-[3vw] w-[3vw] m-1 border-blue-950' key={index} onClick={() => paginate(index + 1)}>
+          <button
+            className='border-2 h-[3vw] w-[3vw] m-1 border-blue-950'
+            key={index}
+            onClick={() => paginate(index + 1)}
+          >
             {index + 1}
           </button>
         ))}
       </div>
-    </div>
-  )
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Capsule Details"
+      >
+        {details && <Details capsule={details} closeModal={closeModal} />}
+      </Modal>
+    </>
+  );
 }
 
 export default Grid;
